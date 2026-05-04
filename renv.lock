@@ -1,0 +1,43 @@
+{
+  "R": {
+    "Version": "4.3.2",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://cloud.r-project.org"
+      }
+    ]
+  },
+  "Packages": {
+    "tidyverse":   { "Package": "tidyverse",   "Version": "2.0.0",  "Source": "Repository" },
+    "tidymodels":  { "Package": "tidymodels",  "Version": "1.1.1",  "Source": "Repository" },
+    "ggplot2":     { "Package": "ggplot2",     "Version": "3.4.4",  "Source": "Repository" },
+    "dplyr":       { "Package": "dplyr",       "Version": "1.1.4",  "Source": "Repository" },
+    "purrr":       { "Package": "purrr",       "Version": "1.0.2",  "Source": "Repository" },
+    "tibble":      { "Package": "tibble",      "Version": "3.2.1",  "Source": "Repository" },
+    "tidyr":       { "Package": "tidyr",       "Version": "1.3.0",  "Source": "Repository" },
+    "stringr":     { "Package": "stringr",     "Version": "1.5.1",  "Source": "Repository" },
+    "forcats":     { "Package": "forcats",     "Version": "1.0.0",  "Source": "Repository" },
+    "readr":       { "Package": "readr",       "Version": "2.1.4",  "Source": "Repository" },
+    "patchwork":   { "Package": "patchwork",   "Version": "1.2.0",  "Source": "Repository" },
+    "corrplot":    { "Package": "corrplot",    "Version": "0.92",   "Source": "Repository" },
+    "RWeka":       { "Package": "RWeka",       "Version": "0.4.46", "Source": "Repository" },
+    "scales":      { "Package": "scales",      "Version": "1.3.0",  "Source": "Repository" },
+    "ggridges":    { "Package": "ggridges",    "Version": "0.5.6",  "Source": "Repository" },
+    "ggbeeswarm":  { "Package": "ggbeeswarm",  "Version": "0.7.2",  "Source": "Repository" },
+    "themis":      { "Package": "themis",      "Version": "1.0.2",  "Source": "Repository" },
+    "ranger":      { "Package": "ranger",      "Version": "0.16.0", "Source": "Repository" },
+    "xgboost":     { "Package": "xgboost",     "Version": "1.7.7.1","Source": "Repository" },
+    "kernlab":     { "Package": "kernlab",     "Version": "0.9.32", "Source": "Repository" },
+    "glmnet":      { "Package": "glmnet",      "Version": "4.1.8",  "Source": "Repository" },
+    "doParallel":  { "Package": "doParallel",  "Version": "1.0.17", "Source": "Repository" },
+    "vip":         { "Package": "vip",         "Version": "0.4.1",  "Source": "Repository" },
+    "shapviz":     { "Package": "shapviz",     "Version": "0.9.3",  "Source": "Repository" },
+    "kernelshap":  { "Package": "kernelshap",  "Version": "0.4.2",  "Source": "Repository" },
+    "probably":    { "Package": "probably",    "Version": "1.0.3",  "Source": "Repository" },
+    "gt":          { "Package": "gt",          "Version": "0.10.1", "Source": "Repository" },
+    "rmarkdown":   { "Package": "rmarkdown",   "Version": "2.25",   "Source": "Repository" },
+    "knitr":       { "Package": "knitr",       "Version": "1.45",   "Source": "Repository" },
+    "renv":        { "Package": "renv",        "Version": "1.0.3",  "Source": "Repository" }
+  }
+}
