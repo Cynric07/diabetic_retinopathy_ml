@@ -197,17 +197,22 @@ lr_predict_fn <- function(model, newdata) {
     pull(`.pred_DR Present`)
 }
 
+# Logistic workflow needs RAW predictors, not baked predictors
+X_train_lr <- dr_train %>% select(-label) %>% as.data.frame()
+X_test_lr  <- dr_test  %>% select(-label) %>% as.data.frame()
+
 # Use a random subsample as background (KernelSHAP is expensive on full data)
 set.seed(42)
-background_idx <- sample(nrow(X_train), min(100, nrow(X_train)))
-X_background   <- X_train[background_idx, ]
+
+background_idx <- sample(nrow(X_train_lr), min(100, nrow(X_train_lr)))
+X_background_lr <- X_train_lr[background_idx, ]
 
 ks_lr <- kernelshap(
   best_lr,
-  X          = X_test[1:min(100, nrow(X_test)), ],  # explain first 100 test obs
-  bg_X       = X_background,
-  pred_fun   = lr_predict_fn,
-  verbose    = FALSE
+  X        = X_test_lr[1:min(100, nrow(X_test_lr)), ],
+  bg_X     = X_background_lr,
+  pred_fun = lr_predict_fn,
+  verbose  = FALSE
 )
 
 shap_lr <- shapviz(ks_lr)
