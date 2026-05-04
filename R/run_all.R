@@ -23,29 +23,29 @@ pipeline_start <- proc.time()
 
 # ── Stage 1: EDA ─────────────────────────────────────────────────────────────
 cat("── Stage 1/5: Exploratory Data Analysis ──\n")
-source("R/01_load_and_eda.R")
+source("R/load_and_eda.R")
 cat("   ✓ EDA complete\n\n")
 
 # ── Stage 2: Preprocessing ───────────────────────────────────────────────────
 cat("── Stage 2/5: Preprocessing ──\n")
-source("R/02_preprocessing.R")
+source("R/preprocessing.R")
 cat("   ✓ Preprocessing complete\n\n")
 
 # ── Stage 3: Modeling ────────────────────────────────────────────────────────
 cat("── Stage 3/5: Model Training & Tuning ──\n")
 cat("   Note: CV tuning may take several minutes...\n")
-source("R/03_modeling.R")
+source("R/modeling.R")
 cat("   ✓ Modeling complete\n\n")
 
 # ── Stage 4: Evaluation ──────────────────────────────────────────────────────
 cat("── Stage 4/5: Clinical Evaluation ──\n")
-source("R/04_evaluation.R")
+source("R/evaluation.R")
 cat("   ✓ Evaluation complete\n\n")
 
 # ── Stage 5: Interpretability ────────────────────────────────────────────────
 cat("── Stage 5/5: Interpretability (SHAP) ──\n")
 cat("   Note: SHAP computation may take a few minutes...\n")
-source("R/05_interpretability.R")
+source("R/interpretability.R")
 cat("   ✓ Interpretability complete\n\n")
 
 # ── Summary ──────────────────────────────────────────────────────────────────
