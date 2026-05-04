@@ -204,11 +204,18 @@ dr_recipe
 ## Cross-Validation Performance
 
 ```{r cv-results}
-cv_results %>%
-  pivot_wider(names_from = .metric,
-              values_from = c(mean, std_err)) %>%
+cv_results_tbl <- cv_results %>%
+  pivot_wider(
+    names_from  = .metric,
+    values_from = c(mean, std_err),
+    values_fn   = list(mean = ~ mean(.x, na.rm = TRUE),
+                       std_err = ~ mean(.x, na.rm = TRUE))
+  ) %>%
   select(model, mean_roc_auc, mean_sensitivity, mean_specificity) %>%
-  mutate(across(where(is.numeric), ~round(.x, 4))) %>%
+  mutate(across(starts_with("mean_"), as.numeric)) %>%
+  mutate(across(starts_with("mean_"), ~ round(.x, 4)))
+
+cv_results_tbl %>%
   gt() %>%
   tab_header(
     title    = "Cross-Validation Performance",
@@ -220,13 +227,17 @@ cv_results %>%
     mean_sensitivity = "Sensitivity",
     mean_specificity = "Specificity"
   ) %>%
-  fmt_number(columns = where(is.numeric), decimals = 4) %>%
+  fmt_number(columns = starts_with("mean_"), decimals = 4) %>%
   tab_style(
-    style     = cell_fill(color = "#d4edda"),
-    locations = cells_body(rows = mean_roc_auc == max(mean_roc_auc))
+    style = cell_fill(color = "#d4edda"),
+    locations = cells_body(
+      rows = mean_roc_auc == max(mean_roc_auc, na.rm = TRUE)
+    )
   ) %>%
-  tab_style(style = cell_text(weight = "bold"),
-            locations = cells_column_labels())
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  )
 ```
 
 ## ROC Curves
